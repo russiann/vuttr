@@ -8,6 +8,7 @@
     "@hocs/with-lifecycle": "^0.5.1",
     "@rematch/core": "^1.1.0",
     "axios": "^0.19.0",
+    "babel-plugin-emotion": "^10.0.16",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-redux": "^7.1.0",
@@ -17,10 +18,9 @@
     "seamless-immutable": "^7.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
@@ -45,6 +45,9 @@
     "@storybook/addon-links": "^5.1.11",
     "@storybook/addons": "^5.1.11",
     "@storybook/react": "^5.1.11",
-    "babel-loader": "^8.0.6"
+    "babel-loader": "^8.0.6",
+    "babel-plugin-jsx-control-statements": "^4.0.0",
+    "customize-cra": "^0.5.0",
+    "react-app-rewired": "^2.1.3"
   }
 }
