@@ -1,13 +1,13 @@
 import React from 'react';
-
+import {Provider} from 'react-redux';
+import store from './config/store';
 import ToolsScene from './scenes/tools';
 
 function App() {
   return (
-    <div>
-      whatever
+    <Provider store={store}>
       <ToolsScene />
-    </div>
+    </Provider>
   );
 }
 
