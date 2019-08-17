@@ -1,5 +1,6 @@
 import Immutable from 'seamless-immutable';
 import services from '../services';
+import when from '../common/helpers/when-logic';
 
 const tools = {
   name: 'tools',
@@ -7,19 +8,31 @@ const tools = {
   state: Immutable({
     data: [],
     loading: false,
-    error: null
+    error: null,
+    filters: {
+      searchText: '',
+      filterOnlyInTags: false
+    }
   }),
 
   reducers: {
     success: (state, data) => state.merge({data}),
     error: (state, error) => state.merge({error}),
-    loading: (state, loading) => state.merge({loading})
+    loading: (state, loading) => state.merge({loading}),
+    setSearchText: (state, searchText) =>
+      state.merge({filters: {searchText}}, {deep: true}),
+    toggleFilterOnlyInTags: state =>
+      state.setIn(
+        ['filters', 'filterOnlyInTags'],
+        !state.filters.filterOnlyInTags
+      )
   },
 
   effects: dispatch => ({
-    async find() {
+    async find(payload, rootState) {
+      const {filters} = rootState.tools;
       try {
-        const data = await services.tools.find();
+        const data = await services.tools.find(filters);
         dispatch.tools.success(data);
       } catch (error) {
         dispatch.tools.error(error);
@@ -28,22 +41,11 @@ const tools = {
   }),
 
   logics: [
-    {
-      type: 'tools/find',
-      latest: true,
-      process(context, dispatch, done) {
-        dispatch.tools.loading(true);
-        done();
-      }
-    },
-    {
-      type: ['tools/success', 'tools/error'],
-      latest: true,
-      process(context, dispatch, done) {
-        dispatch.tools.loading(false);
-        done();
-      }
-    }
+    when('tools/find', ({tools}) => tools.loading(true)),
+    when(['tools/success', 'tools/error'], ({tools}) => tools.loading(false)),
+    when(['tools/setSearchText', 'tools/toggleFilterOnlyInTags'], ({tools}) =>
+      tools.find()
+    )
   ]
 };
 

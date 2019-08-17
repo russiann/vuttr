@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from '@emotion/styled';
 import Button from '../button/button.component';
+import PropTypes from 'prop-types';
 
 /**
 |--------------------------------------------------
@@ -22,10 +23,9 @@ const SearchIcon = props => (
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      class="feather feather-search"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       {...props}
     >
       <circle cx="11" cy="11" r="8" />
@@ -63,12 +63,41 @@ const SearchFieldInput = styled.input`
 |--------------------------------------------------
 */
 
-const SearchField = ({...props}) => (
-  <SearchFieldWrapper>
-    <SearchIcon />
-    <SearchFieldInput {...props} />
-    <Button>Buscar</Button>
-  </SearchFieldWrapper>
-);
+const SearchField = ({value, onChange, onSearch, ...props}) => {
+  const [inputValue, setInputValue] = useState(value);
+
+  const handleOnChange = ev => {
+    onChange(ev);
+    setInputValue(ev.target.value);
+  };
+
+  const handleButtonClick = () => {
+    onSearch(inputValue);
+  };
+
+  return (
+    <SearchFieldWrapper>
+      <SearchIcon />
+      <SearchFieldInput
+        value={inputValue}
+        onChange={handleOnChange}
+        {...props}
+      />
+      <Button onClick={handleButtonClick}>Buscar</Button>
+    </SearchFieldWrapper>
+  );
+};
+
+SearchField.defaultProps = {
+  inputValue: '',
+  onChange: () => {},
+  onSearch: () => {}
+};
+
+SearchField.propTypes = {
+  inputValue: PropTypes.string,
+  onChange: PropTypes.func,
+  onSearch: PropTypes.func
+};
 
 export default SearchField;

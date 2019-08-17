@@ -11,11 +11,14 @@ import withLifecycle from '@hocs/with-lifecycle';
 const mapStateToProps = ({tools}) => ({
   data: tools.data,
   loading: tools.loading,
-  error: tools.error
+  error: tools.error,
+  filters: tools.filters
 });
 
 const mapDispatchToProps = ({tools}) => ({
-  find: tools.find
+  find: tools.find,
+  setSearchText: tools.setSearchText,
+  toggleFilterOnlyInTags: tools.toggleFilterOnlyInTags
 });
 
 export default compose(

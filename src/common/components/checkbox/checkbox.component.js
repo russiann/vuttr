@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-undef */
 import React from 'react';
 import styled from '@emotion/styled';
 
@@ -46,7 +47,12 @@ const StyledCheckbox = styled.div`
   }
 `;
 
-const Checkbox = ({className, checked, ...props}) => (
+const Label = styled.label`
+  margin-left: 10px;
+  vertical-align: top;
+`;
+
+const Checkbox = ({label, className, checked, ...props}) => (
   <CheckboxContainer className={className}>
     <HiddenCheckbox checked={checked} {...props} />
     <StyledCheckbox checked={checked}>
@@ -54,6 +60,9 @@ const Checkbox = ({className, checked, ...props}) => (
         <polyline points="20 6 9 17 4 12" />
       </Icon>
     </StyledCheckbox>
+    <If condition={label}>
+      <Label>{label}</Label>
+    </If>
   </CheckboxContainer>
 );
 
