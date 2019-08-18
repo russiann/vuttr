@@ -1,7 +1,8 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from '@emotion/styled';
-import Button from '../button/button.component';
 import PropTypes from 'prop-types';
+import Button from '../button/button.component';
+import flow from '../../helpers/flow';
 
 /**
 |--------------------------------------------------
@@ -65,22 +66,31 @@ const SearchFieldInput = styled.input`
 
 const SearchField = ({value, onChange, onSearch, ...props}) => {
   const [inputValue, setInputValue] = useState(value);
+  const [focused, setFocused] = useState(false);
 
-  const handleOnChange = ev => {
-    onChange(ev);
-    setInputValue(ev.target.value);
-  };
+  const handleButtonClick = () => onSearch(inputValue);
+  const handleChange = ev => setInputValue(ev.target.value);
+  const handleFocus = () => setFocused(true);
+  const handleBlur = () => setFocused(false);
 
-  const handleButtonClick = () => {
+  const handleEnterKeyDown = ({keyCode}) => {
+    if (!focused || !(keyCode === 13)) return;
     onSearch(inputValue);
   };
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleEnterKeyDown);
+    return () => document.removeEventListener('keydown', handleEnterKeyDown);
+  });
 
   return (
     <SearchFieldWrapper>
       <SearchIcon />
       <SearchFieldInput
         value={inputValue}
-        onChange={handleOnChange}
+        onChange={flow([handleChange, props.onChange])}
+        onFocus={flow([handleFocus, props.onFocus])}
+        onBlur={flow([handleBlur, props.onBlur])}
         {...props}
       />
       <Button onClick={handleButtonClick}>Buscar</Button>
@@ -89,7 +99,7 @@ const SearchField = ({value, onChange, onSearch, ...props}) => {
 };
 
 SearchField.defaultProps = {
-  inputValue: '',
+  value: '',
   onChange: () => {},
   onSearch: () => {}
 };
