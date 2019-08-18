@@ -51,6 +51,7 @@ const SearchFieldWrapper = styled.div`
 `;
 
 const SearchFieldInput = styled.input`
+  font-family: 'Ubuntu', sans-serif;
   width: 100%;
   outline: none;
   padding: 10px;
@@ -64,18 +65,16 @@ const SearchFieldInput = styled.input`
 |--------------------------------------------------
 */
 
-const SearchField = ({value, onChange, onSearch, ...props}) => {
-  const [inputValue, setInputValue] = useState(value);
+const SearchField = ({value, onSearch, ...props}) => {
   const [focused, setFocused] = useState(false);
 
-  const handleButtonClick = () => onSearch(inputValue);
-  const handleChange = ev => setInputValue(ev.target.value);
+  const handleButtonClick = () => onSearch(value);
   const handleFocus = () => setFocused(true);
   const handleBlur = () => setFocused(false);
 
   const handleEnterKeyDown = ({keyCode}) => {
     if (!focused || !(keyCode === 13)) return;
-    onSearch(inputValue);
+    onSearch(value);
   };
 
   useEffect(() => {
@@ -87,8 +86,7 @@ const SearchField = ({value, onChange, onSearch, ...props}) => {
     <SearchFieldWrapper>
       <SearchIcon />
       <SearchFieldInput
-        value={inputValue}
-        onChange={flow([handleChange, props.onChange])}
+        value={value}
         onFocus={flow([handleFocus, props.onFocus])}
         onBlur={flow([handleBlur, props.onBlur])}
         {...props}
@@ -100,13 +98,11 @@ const SearchField = ({value, onChange, onSearch, ...props}) => {
 
 SearchField.defaultProps = {
   value: '',
-  onChange: () => {},
   onSearch: () => {}
 };
 
 SearchField.propTypes = {
-  inputValue: PropTypes.string,
-  onChange: PropTypes.func,
+  value: PropTypes.string,
   onSearch: PropTypes.func
 };
 

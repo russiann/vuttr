@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 const Button = styled.button`
+  font-family: 'Ubuntu', sans-serif;
   color: ${p => p.theme.textColor};
   background-color: ${p => p.theme.bgColor};
   text-align: center;

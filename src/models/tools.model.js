@@ -43,9 +43,7 @@ const tools = {
   logics: [
     when('tools/find', ({tools}) => tools.loading(true)),
     when(['tools/success', 'tools/error'], ({tools}) => tools.loading(false)),
-    when(['tools/setSearchText', 'tools/toggleFilterOnlyInTags'], ({tools}) =>
-      tools.find()
-    )
+    when(['tools/toggleFilterOnlyInTags'], ({tools}) => tools.find())
   ]
 };
 
