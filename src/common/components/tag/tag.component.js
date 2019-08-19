@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 const Tag = styled.span`
+  height: fit-content;
   background: #ffe5d6;
   padding: 0 2px;
   margin-right: 5px;

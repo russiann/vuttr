@@ -6,6 +6,9 @@ import {css} from '@emotion/core';
 import SearchField from '../../common/components/searchfield/searchfield.component';
 import Checkbox from '../../common/components/checkbox/checkbox.component';
 import Button from '../../common/components/button/button.component';
+import Modal from '../../common/components/modal/modal.component';
+
+import NewScene from '../new';
 
 /**
 |--------------------------------------------------
@@ -13,7 +16,7 @@ import Button from '../../common/components/button/button.component';
 |--------------------------------------------------
 */
 
-const tagsCheckcoxStyle = css`
+const tagsCheckboxStyle = css`
   flex: 1;
   margin-left: 15px;
 `;
@@ -80,6 +83,7 @@ const LogoIcon = styled.div`
 const HeaderContainer = styled.div`
   display: flex;
   align-content: center;
+  padding-top: 15px;
   padding-bottom: 15px;
 `;
 
@@ -106,7 +110,9 @@ const ToolsScene = ({
   filters,
   find,
   setSearchText,
-  toggleFilterOnlyInTags
+  newToolModalOpened,
+  toggleFilterOnlyInTags,
+  toggleNewToolModal
 }) => {
   return (
     <Container>
@@ -122,9 +128,9 @@ const ToolsScene = ({
           label="Search in tags only"
           checked={filters.filterOnlyInTags}
           onChange={() => toggleFilterOnlyInTags()}
-          css={tagsCheckcoxStyle}
+          css={tagsCheckboxStyle}
         />
-        <Button> add </Button>
+        <Button onClick={toggleNewToolModal}> add </Button>
       </Toolbar>
 
       {data.map(tool => (
@@ -140,6 +146,15 @@ const ToolsScene = ({
           }}
         />
       ))}
+
+      <Modal
+        isVisible={newToolModalOpened}
+        title="Nova Tool"
+        footer={<button>Cancel</button>}
+        onClose={toggleNewToolModal}
+      >
+        <NewScene />
+      </Modal>
     </Container>
   );
 };
@@ -148,7 +163,9 @@ ToolsScene.defaultProps = {
   data: [],
   filters: {},
   setSearchText: '',
-  toggleFilterOnlyInTags: () => {}
+  newToolModalOpened: false,
+  toggleFilterOnlyInTags: () => {},
+  toggleNewToolModal: () => {}
 };
 
 export default ToolsScene;

@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
 
 const Card = styled.div`
+  border-radius: 3px;
+  position: relative;
   background-color: #fff;
   border: 1px solid #fafafa;
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),

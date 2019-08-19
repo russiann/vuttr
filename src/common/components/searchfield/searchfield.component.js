@@ -57,6 +57,7 @@ const SearchFieldInput = styled.input`
   padding: 10px;
   border: none;
   min-width: 200px;
+  font-size: 12px;
 `;
 
 /**

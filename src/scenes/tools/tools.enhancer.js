@@ -12,13 +12,15 @@ const mapStateToProps = ({tools}) => ({
   data: tools.data,
   loading: tools.loading,
   error: tools.error,
-  filters: tools.filters
+  filters: tools.filters,
+  newToolModalOpened: tools.newToolModalOpened
 });
 
 const mapDispatchToProps = ({tools}) => ({
   find: tools.find,
   setSearchText: tools.setSearchText,
-  toggleFilterOnlyInTags: tools.toggleFilterOnlyInTags
+  toggleFilterOnlyInTags: tools.toggleFilterOnlyInTags,
+  toggleNewToolModal: tools.toggleNewToolModal
 });
 
 export default compose(
