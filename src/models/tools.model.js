@@ -10,12 +10,14 @@ const tools = {
 
     loadings: {
       fetching: false,
-      saving: false
+      saving: false,
+      removing: false
     },
 
     errors: {
       fetching: null,
-      saving: null
+      saving: null,
+      removing: null
     },
 
     filters: {
@@ -23,7 +25,13 @@ const tools = {
       filterOnlyInTags: false
     },
 
-    newToolModalOpened: false
+    newToolModalOpened: false,
+    confirmModal: {
+      opened: false,
+      tool: {
+        title: null
+      }
+    }
   }),
 
   reducers: {
@@ -33,6 +41,7 @@ const tools = {
 
     setData: (state, data) => state.merge({data}),
     setSaved: state => state,
+    setRemoved: state => state,
 
     setSearchText: (state, searchText) =>
       state.merge({filters: {searchText}}, {deep: true}),
@@ -44,7 +53,12 @@ const tools = {
       ),
 
     toggleNewToolModal: state =>
-      state.set('newToolModalOpened', !state.newToolModalOpened)
+      state.set('newToolModalOpened', !state.newToolModalOpened),
+
+    openConfirmModal: (state, tool) =>
+      state.merge({confirmModal: {opened: true, tool}}),
+    closeConfirmModal: state =>
+      state.merge({confirmModal: {opened: false, tool: {title: null}}})
   },
 
   effects: dispatch => ({
@@ -65,6 +79,16 @@ const tools = {
       } catch (error) {
         dispatch.tools.setError({type: 'saving', value: error});
       }
+    },
+
+    async remove(payload, rootState) {
+      const {tool} = rootState.tools.confirmModal;
+      try {
+        const response = await services.tools.remove(tool.id);
+        dispatch.tools.setRemoved(response.data);
+      } catch (error) {
+        dispatch.tools.setError({type: 'removing', value: error});
+      }
     }
   }),
 
@@ -83,6 +107,11 @@ const tools = {
     when(['tools/setSaved'], ({tools}) => {
       tools.setLoading({type: 'saving', value: false});
       tools.toggleNewToolModal();
+      tools.find();
+    }),
+    when(['tools/setRemoved'], ({tools}) => {
+      tools.setLoading({type: 'removing', value: false});
+      tools.closeConfirmModal();
       tools.find();
     })
   ]

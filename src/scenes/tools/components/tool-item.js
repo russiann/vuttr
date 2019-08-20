@@ -57,17 +57,17 @@ const Tags = styled.div``;
 |--------------------------------------------------
 */
 
-const ToolItem = ({title, link, description, tags, onTagClick, ...props}) => {
+const ToolItem = ({tool, onTagClick, onRemoveClick, ...props}) => {
   return (
     <Card {...props}>
-      <DeleteButton />
-      <Link href={link} target="_blank">
-        {title}
+      <DeleteButton onClick={() => onRemoveClick(tool)} />
+      <Link href={tool.link} target="_blank">
+        {tool.title}
       </Link>
-      <Description>{description}</Description>
-      <If condition={tags.length}>
+      <Description>{tool.description}</Description>
+      <If condition={tool.tags.length}>
         <Tags>
-          {tags.map((tag, idx) => (
+          {tool.tags.map((tag, idx) => (
             <Tag key={idx} onClick={() => onTagClick(tag)}>
               #{tag}
             </Tag>
@@ -79,10 +79,9 @@ const ToolItem = ({title, link, description, tags, onTagClick, ...props}) => {
 };
 
 ToolItem.defaultProps = {
-  title: '',
-  link: '',
-  description: '',
-  tags: []
+  tool: {},
+  onTagClick: () => {},
+  onRemoveClick: () => {}
 };
 
 export default ToolItem;

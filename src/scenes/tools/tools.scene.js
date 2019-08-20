@@ -21,6 +21,13 @@ const tagsCheckboxStyle = css`
   margin-left: 15px;
 `;
 
+const cancelButtonStyle = css`
+  background: #f5f5f5;
+  color: #212121;
+  border: 1px solid #bdbdbd;
+  margin-right: 10px;
+`;
+
 /**
 |--------------------------------------------------
 | Layout Elements
@@ -61,6 +68,15 @@ const Toolbar = styled.div`
 const Container = styled.div`
   max-width: 960px;
   margin: 0 auto;
+`;
+
+const ConfirmModalFooter = styled.div`
+  display: flex;
+  flex-flow: row-reverse;
+`;
+
+const ConfirmModalText = styled.p`
+  margin-top: 0;
 `;
 
 /**
@@ -109,10 +125,14 @@ const ToolsScene = ({
   data,
   filters,
   find,
+  remove,
   setSearchText,
   newToolModalOpened,
   toggleFilterOnlyInTags,
-  toggleNewToolModal
+  toggleNewToolModal,
+  openConfirmModal,
+  closeConfirmModal,
+  confirmModal
 }) => {
   return (
     <Container>
@@ -136,24 +156,37 @@ const ToolsScene = ({
       {data.map(tool => (
         <ToolItem
           key={tool.id}
-          title={tool.title}
-          link={tool.link}
-          description={tool.description}
-          tags={tool.tags}
+          tool={tool}
           onTagClick={tag => {
             setSearchText(tag);
             find();
           }}
+          onRemoveClick={openConfirmModal}
         />
       ))}
 
       <Modal
         isVisible={newToolModalOpened}
         title="Nova Tool"
-        footer={<button>Cancel</button>}
         onClose={toggleNewToolModal}
       >
         <NewScene />
+      </Modal>
+
+      <Modal
+        isVisible={confirmModal.opened}
+        title="Remove Tool"
+        onClose={closeConfirmModal}
+      >
+        <ConfirmModalText>
+          Are you sure you want to remove {confirmModal.tool.title}?
+        </ConfirmModalText>
+        <ConfirmModalFooter>
+          <Button onClick={remove}>Yes, remove</Button>
+          <Button onClick={closeConfirmModal} css={cancelButtonStyle}>
+            Cancel
+          </Button>
+        </ConfirmModalFooter>
       </Modal>
     </Container>
   );
