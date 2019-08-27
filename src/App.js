@@ -1,8 +1,10 @@
 import React from 'react';
 import {Provider} from 'react-redux';
-import store from './config/store';
-import ToolsScene from './scenes/tools';
+import {ThemeProvider} from 'emotion-theming';
 import {Global, css} from '@emotion/core';
+import ToolsScene from './scenes/tools';
+import store from './config/store';
+import theme from './config/theme';
 
 function App() {
   return (
@@ -15,7 +17,9 @@ function App() {
           }
         `}
       />
-      <ToolsScene />
+      <ThemeProvider theme={theme}>
+        <ToolsScene />
+      </ThemeProvider>
     </Provider>
   );
 }

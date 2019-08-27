@@ -16,11 +16,20 @@ const Container = styled.div`
   margin-bottom: 15px;
 `;
 const Label = styled.div`
-  color: #ff6007;
+  color: ${p => p.theme.colors.blazeorange};
   font-size: 14px;
   margin-bottom: 5px;
   margin-left: 7.5px;
 `;
+
+Label.defaultProps = {
+  theme: {
+    colors: {
+      blazeorange: 'ff6007'
+    }
+  }
+};
+
 const ErrorMessage = styled.div`
   font-size: 12px;
   margin-right: 8px;

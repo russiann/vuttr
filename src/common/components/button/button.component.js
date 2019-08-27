@@ -4,7 +4,7 @@ const Button = styled.button`
   font-family: 'Ubuntu', sans-serif;
   font-size: 12px;
   color: ${p => p.theme.textColor};
-  background-color: ${p => p.theme.bgColor};
+  background-color: ${p => p.theme.colors.blazeorange};
   text-align: center;
   text-transform: uppercase;
   padding: 10px 50px;
@@ -21,7 +21,9 @@ const Button = styled.button`
 Button.defaultProps = {
   theme: {
     textColor: '#fff',
-    bgColor: '#ff6007'
+    colors: {
+      blazeorange: '#ff6007'
+    }
   }
 };
 
