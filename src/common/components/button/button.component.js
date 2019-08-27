@@ -19,6 +19,7 @@ const Button = styled.button`
 `;
 
 Button.defaultProps = {
+  'data-testid': 'button',
   theme: {
     textColor: '#fff',
     colors: {
