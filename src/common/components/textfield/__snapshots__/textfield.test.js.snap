@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<DocumentFragment>
+  <input
+    class="css-ufdmwz"
+    data-testid="textfield"
+    type="text"
+  />
+</DocumentFragment>
+`;

@@ -13,6 +13,7 @@ const TextField = styled.input`
 `;
 
 TextField.defaultProps = {
+  'data-testid': 'textfield',
   type: 'text'
 };
 
