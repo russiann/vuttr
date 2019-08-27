@@ -2,11 +2,10 @@
 
 exports[`renders 1`] = `
 <DocumentFragment>
-  <button
-    class="css-4nja9j-Button e1b4d4yp0"
-    data-testid="button"
-  >
-    Title
-  </button>
+  <textarea
+    class="css-qpvf45-TextArea egmejh80"
+    data-testid="textarea"
+    type="text"
+  />
 </DocumentFragment>
 `;

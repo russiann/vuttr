@@ -14,6 +14,7 @@ const TextArea = styled.textarea`
 `;
 
 TextArea.defaultProps = {
+  'data-testid': 'textarea',
   type: 'text'
 };
 

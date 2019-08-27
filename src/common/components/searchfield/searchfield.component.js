@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 import Button from '../button/button.component';
@@ -60,50 +60,44 @@ const SearchFieldInput = styled.input`
   font-size: 12px;
 `;
 
+SearchFieldInput.defaultProps = {
+  'data-testid': 'input'
+};
+
 /**
 |--------------------------------------------------
 | Block
 |--------------------------------------------------
 */
 
-const SearchField = ({value, onSearch, ...props}) => {
-  const [focused, setFocused] = useState(false);
-
+const SearchField = ({value, onSearch, searchLabel, ...props}) => {
   const handleButtonClick = () => onSearch(value);
-  const handleFocus = () => setFocused(true);
-  const handleBlur = () => setFocused(false);
 
   const handleEnterKeyDown = ({keyCode}) => {
-    if (!focused || !(keyCode === 13)) return;
+    if (!(keyCode === 13)) return;
     onSearch(value);
   };
-
-  useEffect(() => {
-    document.addEventListener('keydown', handleEnterKeyDown);
-    return () => document.removeEventListener('keydown', handleEnterKeyDown);
-  });
 
   return (
     <SearchFieldWrapper>
       <SearchIcon />
       <SearchFieldInput
         value={value}
-        onFocus={flow([handleFocus, props.onFocus])}
-        onBlur={flow([handleBlur, props.onBlur])}
+        onKeyDown={flow([handleEnterKeyDown, props.onBlur])}
         {...props}
       />
-      <Button onClick={handleButtonClick}>Buscar</Button>
+      <Button onClick={handleButtonClick}>{searchLabel}</Button>
     </SearchFieldWrapper>
   );
 };
 
 SearchField.defaultProps = {
-  value: '',
+  searchLabel: 'Search',
   onSearch: () => {}
 };
 
 SearchField.propTypes = {
-  value: PropTypes.string,
+  searchLabel: PropTypes.string,
   onSearch: PropTypes.func
 };
 

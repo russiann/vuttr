@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<DocumentFragment>
+  <div
+    class="css-1gg8exq-SearchFieldWrapper ed00wpq1"
+  >
+    <div
+      class="css-1ey6ya2-IconWrapper ed00wpq0"
+    >
+      <svg
+        fill="none"
+        height="17"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="17"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle
+          cx="11"
+          cy="11"
+          r="8"
+        />
+        <line
+          x1="21"
+          x2="16.65"
+          y1="21"
+          y2="16.65"
+        />
+      </svg>
+    </div>
+    <input
+      class="css-1rcc679-SearchFieldInput ed00wpq2"
+      data-testid="input"
+      value=""
+    />
+    <button
+      class="css-4nja9j-Button e1b4d4yp0"
+      data-testid="button"
+    >
+      Search
+    </button>
+  </div>
+</DocumentFragment>
+`;
