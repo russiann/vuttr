@@ -1,20 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders 1`] = `
-<DocumentFragment>
-  <a
-    class="css-1n4a4ni-Link esh20tv0"
-    href="http://www.google.com"
-  >
-    Google
-  </a>
-</DocumentFragment>
-`;
-
 exports[`snapshot 1`] = `
 <DocumentFragment>
-  <a
-    class="css-1n4a4ni-Link esh20tv0"
+  .emotion-0 {
+  color: #ff6007;
+}
+
+<a
+    class="emotion-0 emotion-1"
     href="http://www.google.com"
   >
     Google

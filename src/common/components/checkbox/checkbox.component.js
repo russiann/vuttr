@@ -69,9 +69,7 @@ const Checkbox = ({label, className, checked, ...props}) => (
         <polyline points="20 6 9 17 4 12" />
       </Icon>
     </StyledCheckbox>
-    <If condition={label}>
-      <Label>{label}</Label>
-    </If>
+    {label && <Label>{label}</Label>}
   </CheckboxContainer>
 );
 

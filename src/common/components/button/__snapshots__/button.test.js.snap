@@ -1,20 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders 1`] = `
-<DocumentFragment>
-  <button
-    class="css-4nja9j-Button e1b4d4yp0"
-    data-testid="button"
-  >
-    Title
-  </button>
-</DocumentFragment>
-`;
-
 exports[`snapshot 1`] = `
 <DocumentFragment>
-  <button
-    class="css-4nja9j-Button e1b4d4yp0"
+  .emotion-0 {
+  font-family: 'Ubuntu',sans-serif;
+  font-size: 12px;
+  color: #fff;
+  background-color: #ff6007;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 10px 50px;
+  border: none;
+  border-radius: 30px;
+  outline: none;
+  cursor: pointer;
+}
+
+.emotion-0:hover {
+  opacity: 0.9;
+}
+
+<button
+    class="emotion-0 emotion-1"
     data-testid="button"
   >
     Title

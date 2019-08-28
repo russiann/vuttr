@@ -1,19 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders 1`] = `
-<DocumentFragment>
-  <span
-    class="css-1f19l54-Tag ex7fybt0"
-  >
-    #node
-  </span>
-</DocumentFragment>
-`;
-
 exports[`snapshot 1`] = `
 <DocumentFragment>
-  <span
-    class="css-1f19l54-Tag ex7fybt0"
+  .emotion-0 {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  background: #ffe5d6;
+  padding: 0 2px;
+  margin-right: 5px;
+  color: #212121;
+  cursor: pointer;
+}
+
+<span
+    class="emotion-0 emotion-1"
   >
     #node
   </span>

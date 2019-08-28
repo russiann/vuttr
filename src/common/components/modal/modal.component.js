@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-no-undef */
 import React, {useEffect} from 'react';
 import styled from '@emotion/styled';
+import PropTypes from 'prop-types';
 
 /**
 |--------------------------------------------------
@@ -152,6 +153,21 @@ const Modal = ({isVisible = false, title, onClose, children, ...props}) => {
       </Dialog>
     </Container>
   );
+};
+
+Modal.defaultProps = {
+  isVisible: false,
+  title: '',
+  onClose: () => {}
+};
+
+Modal.propTypes = {
+  isVisible: PropTypes.bool,
+  title: PropTypes.string,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]).isRequired
 };
 
 export default React.memo(Modal);

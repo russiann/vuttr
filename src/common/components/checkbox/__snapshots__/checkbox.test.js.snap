@@ -1,21 +1,70 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders 1`] = `
+exports[`should show label 1`] = `
 <DocumentFragment>
-  <label
-    class="css-1mj3kb8-CheckboxContainer e1ycchz00"
+  .emotion-8 {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.emotion-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  -webkit-clippath: inset(50%);
+  clippath: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.emotion-4 {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: #ffded5;
+  border-radius: 3px;
+  -webkit-transition: all 150ms;
+  transition: all 150ms;
+}
+
+.emotion-1:focus + .emotion-4 {
+  box-shadow: 0 0 0 3px pink;
+}
+
+.emotion-4 .emotion-3 {
+  visibility: hidden;
+}
+
+.emotion-2 {
+  fill: none;
+  stroke: white;
+  stroke-width: 2px;
+}
+
+.emotion-6 {
+  margin-left: 10px;
+  vertical-align: top;
+}
+
+<label
+    class="emotion-8 emotion-9"
     data-testid="container"
   >
     <input
-      class="css-ixs4ym-HiddenCheckbox e1ycchz02"
+      class="emotion-0 emotion-1"
       data-testid="checkbox"
       type="checkbox"
     />
     <div
-      class="css-3mta6a-StyledCheckbox e1ycchz03"
+      class="emotion-4 emotion-5"
     >
       <svg
-        class="css-dbk7ea-Icon e1ycchz01"
+        class="emotion-2 emotion-3"
         viewBox="0 0 24 24"
       >
         <polyline
@@ -23,26 +72,76 @@ exports[`renders 1`] = `
         />
       </svg>
     </div>
+    <label
+      class="emotion-6 emotion-7"
+      data-testid="label"
+    >
+      lorem ipsum
+    </label>
   </label>
 </DocumentFragment>
 `;
 
 exports[`snapshot 1`] = `
 <DocumentFragment>
-  <label
-    class="css-1mj3kb8-CheckboxContainer e1ycchz00"
+  .emotion-6 {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.emotion-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  -webkit-clippath: inset(50%);
+  clippath: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.emotion-4 {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: #ffded5;
+  border-radius: 3px;
+  -webkit-transition: all 150ms;
+  transition: all 150ms;
+}
+
+.emotion-1:focus + .emotion-4 {
+  box-shadow: 0 0 0 3px pink;
+}
+
+.emotion-4 .emotion-3 {
+  visibility: hidden;
+}
+
+.emotion-2 {
+  fill: none;
+  stroke: white;
+  stroke-width: 2px;
+}
+
+<label
+    class="emotion-6 emotion-7"
     data-testid="container"
   >
     <input
-      class="css-ixs4ym-HiddenCheckbox e1ycchz02"
+      class="emotion-0 emotion-1"
       data-testid="checkbox"
       type="checkbox"
     />
     <div
-      class="css-3mta6a-StyledCheckbox e1ycchz03"
+      class="emotion-4 emotion-5"
     >
       <svg
-        class="css-dbk7ea-Icon e1ycchz01"
+        class="emotion-2 emotion-3"
         viewBox="0 0 24 24"
       >
         <polyline

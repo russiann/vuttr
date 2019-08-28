@@ -1,0 +1,158 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot 1`] = `
+<DocumentFragment>
+  .emotion-12 {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 9999;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background-color: rgba(0,0,0,0.25);
+  -webkit-animation-name: appear;
+  animation-name: appear;
+  -webkit-animation-duration: 300ms;
+  animation-duration: 300ms;
+}
+
+.emotion-10 {
+  border-radius: 3px;
+  width: 100%;
+  max-width: 550px;
+  background: white;
+  position: relative;
+  margin: 0 20px;
+  max-height: calc(100vh - 40px);
+  text-align: left;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: slide-in;
+  animation-name: slide-in;
+  -webkit-animation-duration: 0.4s;
+  animation-duration: 0.4s;
+  -webkit-animation-timing-function: ease;
+  animation-timing-function: ease;
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #f5f5f5;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.emotion-0 {
+  margin: 0;
+  color: #ff6007;
+}
+
+.emotion-2 {
+  cursor: pointer;
+  padding: 1rem;
+  margin: -1rem -1rem -1rem auto;
+  color: #d0d0d0;
+  -webkit-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+}
+
+.emotion-2:hover {
+  color: #bdbdbd;
+}
+
+.emotion-8 {
+  overflow: auto;
+}
+
+.emotion-6 {
+  padding: 1rem;
+}
+
+<div
+    class="emotion-12 emotion-13"
+  >
+    <div
+      class="emotion-10 emotion-11"
+    >
+      <div
+        class="emotion-4 emotion-5"
+      >
+        <h3
+          class="emotion-0 emotion-1"
+        >
+          Simple Modal
+        </h3>
+        <div
+          class="emotion-2 emotion-3"
+        >
+          <svg
+            fill="none"
+            height="24"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <line
+              x1="18"
+              x2="6"
+              y1="6"
+              y2="18"
+            />
+            <line
+              x1="6"
+              x2="18"
+              y1="6"
+              y2="18"
+            />
+          </svg>
+        </div>
+      </div>
+      <div
+        class="emotion-8 emotion-9"
+      >
+        <div
+          class="emotion-6 emotion-7"
+        >
+          <p>
+            Lorem ipsum dolor sit amet consectetur
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

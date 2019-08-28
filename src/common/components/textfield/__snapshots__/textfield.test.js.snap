@@ -1,19 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders 1`] = `
-<DocumentFragment>
-  <input
-    class="css-13e1kld-TextField edxas6h0"
-    data-testid="textfield"
-    type="text"
-  />
-</DocumentFragment>
-`;
-
 exports[`snapshot 1`] = `
 <DocumentFragment>
-  <input
-    class="css-13e1kld-TextField edxas6h0"
+  .emotion-0 {
+  font-family: 'Ubuntu',sans-serif;
+  outline: none;
+  padding: 10px 15px;
+  border: 1px solid #bdbdbd;
+  border-radius: 30px;
+  min-width: 200px;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 12px;
+}
+
+<input
+    class="emotion-0 emotion-1"
     data-testid="textfield"
     type="text"
   />

@@ -1,6 +1,5 @@
 import React from 'react';
 import {render, cleanup} from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
 
 import Checkbox from './checkbox.component';
 
@@ -19,9 +18,10 @@ it('should not show label if it dont pass label prop', () => {
 
 it('should show label', () => {
   const labelText = 'lorem ipsum';
-  const {getByTestId} = render(<Checkbox label={labelText} />);
+  const {getByTestId, asFragment} = render(<Checkbox label={labelText} />);
   const label = getByTestId('label');
   expect(label).toHaveTextContent(labelText);
+  expect(asFragment()).toMatchSnapshot();
 });
 
 it('should be checked if do not pass checked prop', () => {
