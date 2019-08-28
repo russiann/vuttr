@@ -34,6 +34,10 @@ const Container = styled.div`
   }
 `;
 
+Container.defaultProps = {
+  'data-testid': 'container'
+};
+
 const Dialog = styled.div`
   border-radius: 3px;
   width: 100%;
@@ -61,6 +65,10 @@ const Dialog = styled.div`
   }
 `;
 
+Dialog.defaultProps = {
+  'data-testid': 'dialog'
+};
+
 const Header = styled.div`
   display: flex;
   align-items: center;
@@ -81,6 +89,10 @@ const Close = styled.div`
   }
 `;
 
+Close.defaultProps = {
+  'data-testid': 'close-button'
+};
+
 const Body = styled.div`
   overflow: auto;
 `;
@@ -94,7 +106,7 @@ const Title = styled.h3`
   color: #ff6007;
 `;
 
-const CloseIcon = () => (
+const CloseIcon = props => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24"
