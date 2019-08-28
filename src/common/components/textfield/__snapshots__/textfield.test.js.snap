@@ -9,3 +9,13 @@ exports[`renders 1`] = `
   />
 </DocumentFragment>
 `;
+
+exports[`snapshot 1`] = `
+<DocumentFragment>
+  <input
+    class="css-13e1kld-TextField edxas6h0"
+    data-testid="textfield"
+    type="text"
+  />
+</DocumentFragment>
+`;

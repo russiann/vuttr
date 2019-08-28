@@ -6,7 +6,7 @@ import Button from './button.component';
 
 afterEach(cleanup);
 
-it('renders', () => {
+it('snapshot', () => {
   const {asFragment} = render(<Button>Title</Button>);
   expect(asFragment()).toMatchSnapshot();
 });

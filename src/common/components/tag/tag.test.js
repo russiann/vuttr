@@ -6,7 +6,7 @@ import Tag from './tag.component';
 
 afterEach(cleanup);
 
-it('renders', () => {
+it('snapshot', () => {
   const {asFragment} = render(<Tag>#node</Tag>);
   expect(asFragment()).toMatchSnapshot();
 });

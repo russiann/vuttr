@@ -9,3 +9,13 @@ exports[`renders 1`] = `
   </span>
 </DocumentFragment>
 `;
+
+exports[`snapshot 1`] = `
+<DocumentFragment>
+  <span
+    class="css-1f19l54-Tag ex7fybt0"
+  >
+    #node
+  </span>
+</DocumentFragment>
+`;

@@ -6,7 +6,7 @@ import Textarea from './textarea.component';
 
 afterEach(cleanup);
 
-it('renders', () => {
+it('snapshot', () => {
   const {asFragment} = render(<Textarea />);
   expect(asFragment()).toMatchSnapshot();
 });

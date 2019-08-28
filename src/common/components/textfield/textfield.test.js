@@ -6,7 +6,7 @@ import Textfield from './textfield.component';
 
 afterEach(cleanup);
 
-it('renders', () => {
+it('snapshot', () => {
   const {asFragment} = render(<Textfield />);
   expect(asFragment()).toMatchSnapshot();
 });

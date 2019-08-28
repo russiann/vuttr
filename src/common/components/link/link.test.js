@@ -6,7 +6,7 @@ import Link from './link.component';
 
 afterEach(cleanup);
 
-it('renders', () => {
+it('snapshot', () => {
   const {asFragment} = render(<Link href="http://www.google.com">Google</Link>);
   expect(asFragment()).toMatchSnapshot();
 });

@@ -9,3 +9,13 @@ exports[`renders 1`] = `
   />
 </DocumentFragment>
 `;
+
+exports[`snapshot 1`] = `
+<DocumentFragment>
+  <textarea
+    class="css-qpvf45-TextArea egmejh80"
+    data-testid="textarea"
+    type="text"
+  />
+</DocumentFragment>
+`;

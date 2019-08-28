@@ -6,7 +6,7 @@ import Checkbox from './checkbox.component';
 
 afterEach(cleanup);
 
-it('renders', () => {
+it('snapshot', () => {
   const {asFragment} = render(<Checkbox />);
   expect(asFragment()).toMatchSnapshot();
 });

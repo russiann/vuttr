@@ -6,7 +6,7 @@ import Card from './card.component';
 
 afterEach(cleanup);
 
-it('renders', () => {
+it('snapshot', () => {
   const {asFragment} = render(
     <Card>Lorem ipsum dolor sit amet consectetur</Card>
   );

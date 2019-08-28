@@ -6,7 +6,7 @@ import Searchfield from './searchfield.component';
 
 afterEach(cleanup);
 
-it('renders', () => {
+it('snapshot', () => {
   const {asFragment} = render(<Searchfield />);
   expect(asFragment()).toMatchSnapshot();
 });
