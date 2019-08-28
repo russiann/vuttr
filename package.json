@@ -60,7 +60,8 @@
   },
   "babel": {
     "plugins": [
-      "emotion"
+      "emotion",
+      "jsx-control-statements"
     ]
   }
 }

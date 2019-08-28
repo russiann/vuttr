@@ -13,6 +13,10 @@ const Icon = styled.svg`
   stroke-width: 2px;
 `;
 
+CheckboxContainer.defaultProps = {
+  'data-testid': 'container'
+};
+
 const HiddenCheckbox = styled.input`
   border: 0;
   clip: rect(0 0 0 0);
@@ -27,6 +31,7 @@ const HiddenCheckbox = styled.input`
 `;
 
 HiddenCheckbox.defaultProps = {
+  'data-testid': 'checkbox',
   type: 'checkbox'
 };
 
@@ -51,6 +56,10 @@ const Label = styled.label`
   margin-left: 10px;
   vertical-align: top;
 `;
+
+Label.defaultProps = {
+  'data-testid': 'label'
+};
 
 const Checkbox = ({label, className, checked, ...props}) => (
   <CheckboxContainer className={className}>

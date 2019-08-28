@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<DocumentFragment>
+  <label
+    class="css-1mj3kb8-CheckboxContainer e1ycchz00"
+    data-testid="container"
+  >
+    <input
+      class="css-ixs4ym-HiddenCheckbox e1ycchz02"
+      data-testid="checkbox"
+      type="checkbox"
+    />
+    <div
+      class="css-3mta6a-StyledCheckbox e1ycchz03"
+    >
+      <svg
+        class="css-dbk7ea-Icon e1ycchz01"
+        viewBox="0 0 24 24"
+      >
+        <polyline
+          points="20 6 9 17 4 12"
+        />
+      </svg>
+    </div>
+  </label>
+</DocumentFragment>
+`;

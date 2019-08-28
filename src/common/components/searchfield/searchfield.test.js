@@ -1,5 +1,5 @@
 import React from 'react';
-import {render, cleanup, fireEvent, wait} from '@testing-library/react';
+import {render, cleanup, fireEvent} from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
 import Searchfield from './searchfield.component';
