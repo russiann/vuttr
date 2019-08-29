@@ -15,6 +15,7 @@ import TagField from '../tagfield/tagfield.component';
 const Container = styled.div`
   margin-bottom: 15px;
 `;
+
 const Label = styled.div`
   color: ${p => p.theme.colors.blazeorange};
   font-size: 14px;
@@ -23,6 +24,7 @@ const Label = styled.div`
 `;
 
 Label.defaultProps = {
+  'data-testid': 'label',
   theme: {
     colors: {
       blazeorange: 'ff6007'
@@ -41,6 +43,10 @@ const ErrorMessage = styled.div`
   border-radius: 2px;
 `;
 
+ErrorMessage.defaultProps = {
+  'data-testid': 'error-message'
+};
+
 /**
 |--------------------------------------------------
 | Block
@@ -49,7 +55,9 @@ const ErrorMessage = styled.div`
 
 const InputField = ({type, label, errorMessage, ...props}) => (
   <Container>
-    <Label>{label}</Label>
+    <If condition={label}>
+      <Label>{label}</Label>
+    </If>
     <Choose>
       <When condition={type === 'textarea'}>
         <TextArea {...props} />

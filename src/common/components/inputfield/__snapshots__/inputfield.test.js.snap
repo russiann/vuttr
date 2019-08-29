@@ -1,0 +1,199 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should not show errorMessage if it does not exists 1`] = `
+<DocumentFragment>
+  .emotion-2 {
+  margin-bottom: 15px;
+}
+
+.emotion-0 {
+  font-family: 'Ubuntu',sans-serif;
+  outline: none;
+  padding: 10px 15px;
+  border: 1px solid #bdbdbd;
+  border-radius: 30px;
+  min-width: 200px;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 12px;
+}
+
+<div
+    class="emotion-2 emotion-3"
+  >
+    <input
+      class="emotion-0 emotion-1"
+      data-testid="textfield"
+      placeholder="lorem ipsum dolor sit amet..."
+      type="text"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`should not show label if it does not exists 1`] = `
+<DocumentFragment>
+  .emotion-2 {
+  margin-bottom: 15px;
+}
+
+.emotion-0 {
+  font-family: 'Ubuntu',sans-serif;
+  outline: none;
+  padding: 10px 15px;
+  border: 1px solid #bdbdbd;
+  border-radius: 30px;
+  min-width: 200px;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 12px;
+}
+
+<div
+    class="emotion-2 emotion-3"
+  >
+    <input
+      class="emotion-0 emotion-1"
+      data-testid="textfield"
+      placeholder="lorem ipsum dolor sit amet..."
+      type="text"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`should show errorMessage if it exists 1`] = `
+<DocumentFragment>
+  .emotion-4 {
+  margin-bottom: 15px;
+}
+
+.emotion-0 {
+  font-family: 'Ubuntu',sans-serif;
+  outline: none;
+  padding: 10px 15px;
+  border: 1px solid #bdbdbd;
+  border-radius: 30px;
+  min-width: 200px;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 12px;
+}
+
+.emotion-2 {
+  font-size: 12px;
+  margin-right: 8px;
+  margin-top: 4px;
+  color: #ffffff;
+  background: red;
+  padding: 1px 2px;
+  float: right;
+  border-radius: 2px;
+}
+
+<div
+    class="emotion-4 emotion-5"
+  >
+    <input
+      class="emotion-0 emotion-1"
+      data-testid="textfield"
+      placeholder="lorem ipsum dolor sit amet..."
+      type="text"
+    />
+    <div
+      class="emotion-2 emotion-3"
+      data-testid="error-message"
+    >
+      Invalid!
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`should show label if it exists 1`] = `
+<DocumentFragment>
+  .emotion-4 {
+  margin-bottom: 15px;
+}
+
+.emotion-0 {
+  color: ff6007;
+  font-size: 14px;
+  margin-bottom: 5px;
+  margin-left: 7.5px;
+}
+
+.emotion-2 {
+  font-family: 'Ubuntu',sans-serif;
+  outline: none;
+  padding: 10px 15px;
+  border: 1px solid #bdbdbd;
+  border-radius: 30px;
+  min-width: 200px;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 12px;
+}
+
+<div
+    class="emotion-4 emotion-5"
+  >
+    <div
+      class="emotion-0 emotion-1"
+      data-testid="label"
+    >
+      Tool Name
+    </div>
+    <input
+      class="emotion-2 emotion-3"
+      data-testid="textfield"
+      placeholder="lorem ipsum dolor sit amet..."
+      type="text"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`snapshot 1`] = `
+<DocumentFragment>
+  .emotion-4 {
+  margin-bottom: 15px;
+}
+
+.emotion-0 {
+  color: ff6007;
+  font-size: 14px;
+  margin-bottom: 5px;
+  margin-left: 7.5px;
+}
+
+.emotion-2 {
+  font-family: 'Ubuntu',sans-serif;
+  outline: none;
+  padding: 10px 15px;
+  border: 1px solid #bdbdbd;
+  border-radius: 30px;
+  min-width: 200px;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 12px;
+}
+
+<div
+    class="emotion-4 emotion-5"
+  >
+    <div
+      class="emotion-0 emotion-1"
+      data-testid="label"
+    >
+      Tool Name
+    </div>
+    <input
+      class="emotion-2 emotion-3"
+      data-testid="textfield"
+      placeholder="lorem ipsum dolor sit amet..."
+      type="text"
+    />
+  </div>
+</DocumentFragment>
+`;
