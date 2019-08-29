@@ -1,0 +1,165 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render tags 1`] = `
+<DocumentFragment>
+  .emotion-10 {
+  font-family: 'Ubuntu',sans-serif;
+  border: 1px dashed #ffb18f;
+  border-radius: 4px;
+  min-width: 200px;
+  box-sizing: border-box;
+  font-size: 12px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 5px 10px;
+  overflow: hidden;
+}
+
+.emotion-0 {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  background: #ffe5d6;
+  padding: 0 2px;
+  margin-right: 5px;
+  color: #212121;
+  cursor: pointer;
+}
+
+.emotion-8 {
+  font-family: Ubuntu;
+  outline: none;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  border: none;
+  font-size: 15px;
+}
+
+<div
+    class="emotion-10 emotion-11"
+    type="text"
+  >
+    <span
+      class="emotion-0 emotion-1"
+      data-testid="tag"
+    >
+      #lorem
+    </span>
+    <span
+      class="emotion-0 emotion-1"
+      data-testid="tag"
+    >
+      #ipsum
+    </span>
+    <span
+      class="emotion-0 emotion-1"
+      data-testid="tag"
+    >
+      #dolor
+    </span>
+    <span
+      class="emotion-0 emotion-1"
+      data-testid="tag"
+    >
+      #sit
+    </span>
+    <input
+      class="emotion-8 emotion-9"
+      data-testid="textfield"
+      value=""
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`snapshot 1`] = `
+<DocumentFragment>
+  .emotion-10 {
+  font-family: 'Ubuntu',sans-serif;
+  border: 1px dashed #ffb18f;
+  border-radius: 4px;
+  min-width: 200px;
+  box-sizing: border-box;
+  font-size: 12px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 5px 10px;
+  overflow: hidden;
+}
+
+.emotion-0 {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  background: #ffe5d6;
+  padding: 0 2px;
+  margin-right: 5px;
+  color: #212121;
+  cursor: pointer;
+}
+
+.emotion-8 {
+  font-family: Ubuntu;
+  outline: none;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  border: none;
+  font-size: 15px;
+}
+
+<div
+    class="emotion-10 emotion-11"
+    type="text"
+  >
+    <span
+      class="emotion-0 emotion-1"
+      data-testid="tag"
+    >
+      #lorem
+    </span>
+    <span
+      class="emotion-0 emotion-1"
+      data-testid="tag"
+    >
+      #ipsum
+    </span>
+    <span
+      class="emotion-0 emotion-1"
+      data-testid="tag"
+    >
+      #dolor
+    </span>
+    <span
+      class="emotion-0 emotion-1"
+      data-testid="tag"
+    >
+      #sit
+    </span>
+    <input
+      class="emotion-8 emotion-9"
+      data-testid="textfield"
+      value=""
+    />
+  </div>
+</DocumentFragment>
+`;

@@ -35,6 +35,10 @@ const TextField = styled.input`
   font-size: 15px;
 `;
 
+TextField.defaultProps = {
+  'data-testid': 'textfield'
+};
+
 /**
 |--------------------------------------------------
 | Custom Styles
@@ -72,7 +76,7 @@ const TagField = ({value, onChange, placeholder, ...props}) => {
   return (
     <Container>
       {value.map((tag, idx) => (
-        <Tag key={idx} css={tagStyle}>
+        <Tag data-testid="tag" key={idx} css={tagStyle}>
           #{tag}
         </Tag>
       ))}

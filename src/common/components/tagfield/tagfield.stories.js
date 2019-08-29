@@ -8,8 +8,9 @@ import TagField from './tagfield.component';
 const tags = ['lorem', 'ipsum', 'dolor', 'sit'];
 
 storiesOf('TagField', module)
+  .addParameters({jest: ['tagfield']})
   .add('simple', () => <TagField value={tags} onChange={action('onChange')} />)
-  .add('with placeholdes', () => (
+  .add('with placeholder', () => (
     <Component
       initialState={{
         tags: ['lorem', 'ipsum', 'dolor', 'sit']
