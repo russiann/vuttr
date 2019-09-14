@@ -10,9 +10,9 @@ it('snapshot', () => {
   expect(asFragment()).toMatchSnapshot();
 });
 
-it('should render default value', () => {
+it.only('should render default value', () => {
   const text = 'Hello World!';
-  const {getByTestId} = render(<Searchfield defaultValue={text} />);
+  const {getByTestId} = render(<Searchfield value={text} />);
   const input = getByTestId('input');
   expect(input.value).toBe(text);
 });

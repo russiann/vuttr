@@ -1,38 +1,49 @@
-import {connect} from 'react-redux';
+/* eslint-disable react-hooks/rules-of-hooks */
+import {useEffect} from 'react';
+import {useSelector, useDispatch} from 'react-redux';
 import compose from '../../common/helpers/compose';
-import withLifecycle from '@hocs/with-lifecycle';
+import withHooks from '../../common/helpers/with-hooks';
 
-/**
-|--------------------------------------------------
-| Redux
-|--------------------------------------------------
-*/
-
-const mapStateToProps = ({tools}) => ({
-  data: tools.data,
-  loading: tools.loading,
-  error: tools.error,
-  filters: tools.filters,
-  newToolModalOpened: tools.newToolModalOpened,
-  confirmModal: tools.confirmModal
-});
-
-const mapDispatchToProps = ({tools}) => ({
-  find: tools.find,
-  remove: tools.remove,
-  setSearchText: tools.setSearchText,
-  toggleFilterOnlyInTags: tools.toggleFilterOnlyInTags,
-  toggleNewToolModal: tools.toggleNewToolModal,
-  openConfirmModal: tools.openConfirmModal,
-  closeConfirmModal: tools.closeConfirmModal
-});
+/* eslint-disable react-hooks/exhaustive-deps  */
+const onMount = fn =>
+  useEffect(() => {
+    fn();
+  }, []);
 
 export default compose(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  ),
-  withLifecycle({
-    onDidMount: ({find}) => find()
+  withHooks(props => {
+    /** state */
+    const tools = useSelector(state => state.tools.asMutable({deep: true}));
+
+    const state = {
+      data: tools.data,
+      isFilterOnlyInTags: tools.filters.filterOnlyInTags,
+      newToolModalOpened: tools.newToolModalOpened,
+      confirmModal: tools.confirmModal
+    };
+
+    /** actions */
+    const models = useDispatch();
+
+    const actions = {
+      remove: models.tools.remove,
+      setSearchText: models.tools.setSearchText,
+      toggleFilterOnlyInTags: models.tools.toggleFilterOnlyInTags,
+      toggleNewToolModal: models.tools.toggleNewToolModal,
+      openConfirmModal: models.tools.openConfirmModal,
+      closeConfirmModal: models.tools.closeConfirmModal,
+      onSearchText: models.tools.setSearchText,
+      onTagClick: models.tools.setSearchText
+    };
+
+    /** side effects */
+    onMount(models.tools.find);
+
+    /** props */
+    return {
+      ...state,
+      ...actions,
+      ...props
+    };
   })
 );

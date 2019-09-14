@@ -1,0 +1,204 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render tags 1`] = `
+<DocumentFragment>
+  .emotion-14 {
+  border-radius: 3px;
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #fafafa;
+  box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
+  padding: 15px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.emotion-0 {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  color: #d0d0d0;
+  cursor: pointer;
+  -webkit-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+}
+
+.emotion-0:hover {
+  color: #bdbdbd;
+}
+
+.emotion-2 {
+  color: #ff6007;
+}
+
+.emotion-4 {
+  color: #bdbdbd;
+  margin: 10px 0;
+}
+
+.emotion-6 {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  background: #ffe5d6;
+  padding: 0 2px;
+  margin-right: 5px;
+  color: #212121;
+  cursor: pointer;
+}
+
+<div
+    class="emotion-14 emotion-15"
+  >
+    <svg
+      class="emotion-0 emotion-1"
+      data-testid="delete-button"
+      fill="none"
+      height="20"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      viewBox="0 0 24 24"
+      width="20"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <polyline
+        points="3 6 5 6 21 6"
+      />
+      <path
+        d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+      />
+      <line
+        x1="10"
+        x2="10"
+        y1="11"
+        y2="17"
+      />
+      <line
+        x1="14"
+        x2="14"
+        y1="11"
+        y2="17"
+      />
+    </svg>
+    <a
+      class="emotion-2 emotion-3"
+      href="#"
+      target="_blank"
+    >
+      test
+    </a>
+    <div
+      class="emotion-4 emotion-5"
+    >
+      lorem ipsum dolor sti amet consectetur
+    </div>
+    <div
+      class="emotion-12 emotion-13"
+    >
+      <span
+        class="emotion-6 emotion-7"
+        data-testid="tag"
+      >
+        #node
+      </span>
+      <span
+        class="emotion-6 emotion-7"
+        data-testid="tag"
+      >
+        #es6
+      </span>
+      <span
+        class="emotion-6 emotion-7"
+        data-testid="tag"
+      >
+        #javascript
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`snapshot 1`] = `
+<DocumentFragment>
+  .emotion-6 {
+  border-radius: 3px;
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #fafafa;
+  box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
+  padding: 15px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.emotion-0 {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  color: #d0d0d0;
+  cursor: pointer;
+  -webkit-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+}
+
+.emotion-0:hover {
+  color: #bdbdbd;
+}
+
+.emotion-2 {
+  color: #ff6007;
+}
+
+.emotion-4 {
+  color: #bdbdbd;
+  margin: 10px 0;
+}
+
+<div
+    class="emotion-6 emotion-7"
+  >
+    <svg
+      class="emotion-0 emotion-1"
+      data-testid="delete-button"
+      fill="none"
+      height="20"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      viewBox="0 0 24 24"
+      width="20"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <polyline
+        points="3 6 5 6 21 6"
+      />
+      <path
+        d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+      />
+      <line
+        x1="10"
+        x2="10"
+        y1="11"
+        y2="17"
+      />
+      <line
+        x1="14"
+        x2="14"
+        y1="11"
+        y2="17"
+      />
+    </svg>
+    <a
+      class="emotion-2 emotion-3"
+      href="#"
+      target="_blank"
+    />
+    <div
+      class="emotion-4 emotion-5"
+    />
+  </div>
+</DocumentFragment>
+`;

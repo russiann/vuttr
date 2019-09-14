@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 import Button from '../button/button.component';
@@ -70,20 +70,30 @@ SearchFieldInput.defaultProps = {
 |--------------------------------------------------
 */
 
-const SearchField = ({value, onSearch, searchLabel, ...props}) => {
-  const handleButtonClick = () => onSearch(value);
+const SearchField = ({
+  value,
+  onSearch,
+  searchLabel,
+  onBlur,
+  onChange,
+  ...props
+}) => {
+  const [inputValue, setInputValue] = useState(value);
+  const handleButtonClick = () => onSearch(inputValue);
 
   const handleEnterKeyDown = ({keyCode}) => {
-    if (!(keyCode === 13)) return;
-    onSearch(value);
+    if (keyCode === 13) onSearch(inputValue);
   };
+
+  const handlerInputChange = ({target}) => setInputValue(target.value);
 
   return (
     <SearchFieldWrapper>
       <SearchIcon />
       <SearchFieldInput
-        value={value}
-        onKeyDown={flow([handleEnterKeyDown, props.onBlur])}
+        value={inputValue}
+        onKeyDown={flow([handleEnterKeyDown, onBlur])}
+        onChange={flow([handlerInputChange, onChange])}
         {...props}
       />
       <Button onClick={handleButtonClick}>{searchLabel}</Button>
@@ -92,6 +102,7 @@ const SearchField = ({value, onSearch, searchLabel, ...props}) => {
 };
 
 SearchField.defaultProps = {
+  value: '',
   searchLabel: 'Search',
   onSearch: () => {}
 };

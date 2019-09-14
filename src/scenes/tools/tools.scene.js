@@ -1,13 +1,12 @@
 import React from 'react';
-import ToolItem from './components/tool-item';
 import styled from '@emotion/styled';
 import {css} from '@emotion/core';
 
+import ToolItem from './components/tool-item/tool-item.component';
 import SearchField from '../../common/components/searchfield/searchfield.component';
 import Checkbox from '../../common/components/checkbox/checkbox.component';
 import Button from '../../common/components/button/button.component';
 import Modal from '../../common/components/modal/modal.component';
-
 import NewScene from '../new';
 
 /**
@@ -51,14 +50,6 @@ const Logo = () => (
   </svg>
 );
 
-const Title = styled.div`
-  font-size: 23px;
-  letter-spacing: 6px;
-  display: flex;
-  align-items: center;
-`;
-const Subtitle = styled.div``;
-
 const Toolbar = styled.div`
   display: flex;
   justify-content: space-between;
@@ -79,11 +70,14 @@ const ConfirmModalText = styled.p`
   margin-top: 0;
 `;
 
-/**
-|--------------------------------------------------
-| Partials
-|--------------------------------------------------
-*/
+const Title = styled.div`
+  font-size: 23px;
+  letter-spacing: 6px;
+  display: flex;
+  align-items: center;
+`;
+
+const Subtitle = styled.div``;
 
 const LogoIcon = styled.div`
   width: 40px;
@@ -117,36 +111,53 @@ const Header = () => (
 
 /**
 |--------------------------------------------------
+| State
+|--------------------------------------------------
+*/
+
+const initialState = {
+  data: [],
+  searchText: '',
+  isFilterOnlyInTags: false,
+  setSearchText: '',
+  newToolModalOpened: false,
+  toggleFilterOnlyInTags: () => {},
+  toggleNewToolModal: () => {},
+  confirmModal: {
+    opened: false,
+    tool: {
+      title: ''
+    }
+  }
+};
+
+/**
+|--------------------------------------------------
 | Scene
 |--------------------------------------------------
 */
 
 const ToolsScene = ({
   data,
-  filters,
-  find,
-  remove,
-  setSearchText,
+  isFilterOnlyInTags,
   newToolModalOpened,
+  confirmModal,
+  remove,
   toggleFilterOnlyInTags,
   toggleNewToolModal,
   openConfirmModal,
   closeConfirmModal,
-  confirmModal
+  onTagClick,
+  onSearchText
 }) => {
   return (
     <Container>
       <Header />
-
       <Toolbar>
-        <SearchField
-          value={filters.searchText}
-          onChange={({target}) => setSearchText(target.value)}
-          onSearch={() => find()}
-        />
+        <SearchField onSearch={onSearchText} />
         <Checkbox
           label="Search in tags only"
-          checked={filters.filterOnlyInTags}
+          checked={isFilterOnlyInTags}
           onChange={() => toggleFilterOnlyInTags()}
           css={tagsCheckboxStyle}
         />
@@ -157,10 +168,7 @@ const ToolsScene = ({
         <ToolItem
           key={tool.id}
           tool={tool}
-          onTagClick={tag => {
-            setSearchText(tag);
-            find();
-          }}
+          onTagClick={onTagClick}
           onRemoveClick={openConfirmModal}
         />
       ))}
@@ -192,13 +200,20 @@ const ToolsScene = ({
   );
 };
 
-ToolsScene.defaultProps = {
-  data: [],
-  filters: {},
-  setSearchText: '',
-  newToolModalOpened: false,
-  toggleFilterOnlyInTags: () => {},
-  toggleNewToolModal: () => {}
+ToolsScene.defaultProps = initialState;
+
+const equals = (a, b) => {
+  if (a === b) return true;
+  if (a instanceof Date && b instanceof Date)
+    return a.getTime() === b.getTime();
+  if (!a || !b || (typeof a !== 'object' && typeof b !== 'object'))
+    return a === b;
+  if (a === null || a === undefined || b === null || b === undefined)
+    return false;
+  if (a.prototype !== b.prototype) return false;
+  let keys = Object.keys(a);
+  if (keys.length !== Object.keys(b).length) return false;
+  return keys.every(k => equals(a[k], b[k]));
 };
 
-export default ToolsScene;
+export default React.memo(ToolsScene, equals);

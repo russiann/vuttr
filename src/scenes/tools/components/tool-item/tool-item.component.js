@@ -1,9 +1,9 @@
 /* eslint-disable react/jsx-no-undef */
 import React from 'react';
 import styled from '@emotion/styled';
-import Card from '../../../common/components/card/card.component';
-import Link from '../../../common/components/link/link.component';
-import Tag from '../../../common/components/tag/tag.component';
+import Card from '../../../../common/components/card/card.component';
+import Link from '../../../../common/components/link/link.component';
+import Tag from '../../../../common/components/tag/tag.component';
 
 /**
 |--------------------------------------------------
@@ -44,6 +44,10 @@ const DeleteButton = styled(TrashIcon)`
   }
 `;
 
+DeleteButton.defaultProps = {
+  'data-testid': 'delete-button'
+};
+
 const Description = styled.div`
   color: #bdbdbd;
   margin: 10px 0;
@@ -68,7 +72,7 @@ const ToolItem = ({tool, onTagClick, onRemoveClick, ...props}) => {
       <If condition={tool.tags.length}>
         <Tags>
           {tool.tags.map((tag, idx) => (
-            <Tag key={idx} onClick={() => onTagClick(tag)}>
+            <Tag key={idx} onClick={() => onTagClick(tag)} data-testid="tag">
               #{tag}
             </Tag>
           ))}
@@ -79,7 +83,12 @@ const ToolItem = ({tool, onTagClick, onRemoveClick, ...props}) => {
 };
 
 ToolItem.defaultProps = {
-  tool: {},
+  tool: {
+    title: '',
+    description: '',
+    link: '#',
+    tags: []
+  },
   onTagClick: () => {},
   onRemoveClick: () => {}
 };

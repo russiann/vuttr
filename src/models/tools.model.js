@@ -93,17 +93,18 @@ const tools = {
   }),
 
   logics: [
-    when(['tools/toggleFilterOnlyInTags'], ({tools}) => tools.find()),
+    when(['tools/toggleFilterOnlyInTags', 'tools/setSearchText'], ({tools}) =>
+      tools.find()
+    ),
     when('tools/find', ({tools}) =>
       tools.setLoading({type: 'fetching', value: true})
     ),
+    when(['tools/setData', 'tools/setError'], ({tools}) => {
+      tools.setLoading({type: 'fetching', value: false});
+    }),
     when('tools/create', ({tools}) =>
       tools.setLoading({type: 'saving', value: true})
     ),
-    when(['tools/setData', 'tools/setError'], ({tools}) => {
-      tools.setLoading({type: 'fetching', value: false});
-      tools.setLoading({type: 'saving', value: false});
-    }),
     when(['tools/setSaved'], ({tools}) => {
       tools.setLoading({type: 'saving', value: false});
       tools.toggleNewToolModal();
