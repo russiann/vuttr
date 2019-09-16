@@ -3,6 +3,8 @@ import {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import compose from '../../common/helpers/compose';
 import withHooks from '../../common/helpers/with-hooks';
+import withMemo from '../../common/helpers/with-memo';
+import equals from '../../common/helpers/equals';
 
 /* eslint-disable react-hooks/exhaustive-deps  */
 const onMount = fn =>
@@ -45,5 +47,6 @@ export default compose(
       ...actions,
       ...props
     };
-  })
+  }),
+  withMemo(equals)
 );
