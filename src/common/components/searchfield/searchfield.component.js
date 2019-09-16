@@ -108,8 +108,11 @@ SearchField.defaultProps = {
 };
 
 SearchField.propTypes = {
+  value: PropTypes.string.isRequired,
   searchLabel: PropTypes.string,
-  onSearch: PropTypes.func
+  onSearch: PropTypes.func,
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func
 };
 
 export default SearchField;

@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-no-undef */
 import React from 'react';
 import styled from '@emotion/styled';
+import PropTypes from 'prop-types';
 
 const CheckboxContainer = styled.label`
   display: inline-block;
@@ -72,5 +73,11 @@ const Checkbox = ({label, className, checked, ...props}) => (
     {label && <Label>{label}</Label>}
   </CheckboxContainer>
 );
+
+Checkbox.propTypes = {
+  label: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  checked: PropTypes.bool
+};
 
 export default Checkbox;

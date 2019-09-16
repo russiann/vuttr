@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-undef */
 import React from 'react';
 import styled from '@emotion/styled';
-
+import PropTypes from 'prop-types';
 import TextField from '../textfield/textfield.component';
 import TextArea from '../textarea/textarea.component';
 import TagField from '../tagfield/tagfield.component';
@@ -79,6 +79,12 @@ InputField.defaultProps = {
   type: 'text',
   label: '',
   errorMessage: ''
+};
+
+InputField.propTypes = {
+  type: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  errorMessage: PropTypes.string.isRequired
 };
 
 export default InputField;

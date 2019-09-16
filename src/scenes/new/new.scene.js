@@ -2,7 +2,7 @@ import React from 'react';
 import {Formik} from 'formik';
 import {css} from '@emotion/core';
 import * as Yup from 'yup';
-
+import PropTypes from 'prop-types';
 import InputField from '../../common/components/inputfield/inputfield.component';
 import Button from '../../common/components/button/button.component';
 
@@ -33,6 +33,10 @@ const ToolSchema = Yup.object().shape({
     .of(Yup.string())
     .required('Ao menos uma tag é obrigatória!')
 });
+
+const initialState = {
+  create: () => {}
+};
 
 const NewScene = ({create}) => {
   return (
@@ -109,5 +113,11 @@ const NewScene = ({create}) => {
     </Formik>
   );
 };
+
+NewScene.propTypes = {
+  create: PropTypes.func.isRequired
+};
+
+NewScene.defaultProps = initialState;
 
 export default NewScene;

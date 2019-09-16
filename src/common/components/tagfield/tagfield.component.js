@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import styled from '@emotion/styled';
 import {css} from '@emotion/core';
 import Tag from '../tag/tag.component';
+import PropTypes from 'prop-types';
 
 /**
 |--------------------------------------------------
@@ -93,7 +94,14 @@ const TagField = ({value, onChange, placeholder, ...props}) => {
 
 TagField.defaultProps = {
   value: [],
-  onChange: () => {}
+  onChange: () => {},
+  placeholder: ''
+};
+
+TagField.propTypes = {
+  value: PropTypes.arrayOf(PropTypes.string),
+  onChange: PropTypes.func,
+  placeholder: PropTypes.string
 };
 
 export default TagField;

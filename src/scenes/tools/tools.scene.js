@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import {css} from '@emotion/core';
-
+import PropTypes from 'prop-types';
 import ToolItem from './components/tool-item/tool-item.component';
 import SearchField from '../../common/components/searchfield/searchfield.component';
 import Checkbox from '../../common/components/checkbox/checkbox.component';
@@ -150,8 +150,6 @@ const ToolsScene = ({
   onTagClick,
   onSearchText
 }) => {
-  console.log('rendered!');
-
   return (
     <Container>
       <Header />
@@ -202,21 +200,20 @@ const ToolsScene = ({
   );
 };
 
+ToolsScene.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.object).isRequired,
+  isFilterOnlyInTags: PropTypes.bool.isRequired,
+  newToolModalOpened: PropTypes.bool.isRequired,
+  confirmModal: PropTypes.object.isRequired,
+  remove: PropTypes.func.isRequired,
+  toggleFilterOnlyInTags: PropTypes.func.isRequired,
+  toggleNewToolModal: PropTypes.func.isRequired,
+  openConfirmModal: PropTypes.func.isRequired,
+  closeConfirmModal: PropTypes.func.isRequired,
+  onTagClick: PropTypes.func.isRequired,
+  onSearchText: PropTypes.func.isRequired
+};
+
 ToolsScene.defaultProps = initialState;
 
-// const equals = (a, b) => {
-//   if (a === b) return true;
-//   if (a instanceof Date && b instanceof Date)
-//     return a.getTime() === b.getTime();
-//   if (!a || !b || (typeof a !== 'object' && typeof b !== 'object'))
-//     return a === b;
-//   if (a === null || a === undefined || b === null || b === undefined)
-//     return false;
-//   if (a.prototype !== b.prototype) return false;
-//   let keys = Object.keys(a);
-//   if (keys.length !== Object.keys(b).length) return false;
-//   return keys.every(k => equals(a[k], b[k]));
-// };
-
-// export default React.memo(ToolsScene, equals);
 export default ToolsScene;
