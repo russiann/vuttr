@@ -39,11 +39,10 @@ const NewScene = ({create}) => {
     <Formik
       onSubmit={values => create(values)}
       initialValues={{
-        title: 'Feathers.js',
-        description:
-          'A REST and real-time API layer for Node.js, React Native and the browser.',
-        link: 'https://feathersjs.com/',
-        tags: ['web', 'node']
+        title: '',
+        description: '',
+        link: '',
+        tags: []
       }}
       validationSchema={ToolSchema}
     >
@@ -63,7 +62,9 @@ const NewScene = ({create}) => {
             placeholder="Name"
             value={values.title}
             errorMessage={touched.title && errors.title}
-            onChange={handleChange}
+            onChange={ev => {
+              handleChange(ev);
+            }}
             onBlur={handleBlur}
           />
           <InputField
@@ -96,7 +97,11 @@ const NewScene = ({create}) => {
             onBlur={handleBlur}
           />
 
-          <Button onClick={submitForm} css={fullWidthButtonStyle}>
+          <Button
+            data-testid="save-tool"
+            onClick={submitForm}
+            css={fullWidthButtonStyle}
+          >
             Salvar
           </Button>
         </>

@@ -1,5 +1,6 @@
-import {connect} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import compose from '../../common/helpers/compose';
+import withHooks from '../../common/helpers/with-hooks';
 
 /**
 |--------------------------------------------------
@@ -7,15 +8,19 @@ import compose from '../../common/helpers/compose';
 |--------------------------------------------------
 */
 
-const mapStateToProps = () => ({});
-
-const mapDispatchToProps = ({tools}) => ({
-  create: tools.create
-});
-
 export default compose(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )
+  withHooks(props => {
+    /** actions */
+    const models = useDispatch();
+
+    const actions = {
+      create: models.tools.create
+    };
+
+    /** props */
+    return {
+      ...actions,
+      ...props
+    };
+  })
 );

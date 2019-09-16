@@ -1,0 +1,218 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`scene snapshot 1`] = `
+<DocumentFragment>
+  .emotion-4 {
+  margin-bottom: 15px;
+}
+
+.emotion-0 {
+  color: ff6007;
+  font-size: 14px;
+  margin-bottom: 5px;
+  margin-left: 7.5px;
+}
+
+.emotion-2 {
+  font-family: 'Ubuntu',sans-serif;
+  outline: none;
+  padding: 10px 15px;
+  border: 1px solid #bdbdbd;
+  border-radius: 30px;
+  min-width: 200px;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 12px;
+}
+
+<div
+    class="emotion-4 emotion-5"
+  >
+    <div
+      class="emotion-0 emotion-1"
+      data-testid="label"
+    >
+      Tool Name
+    </div>
+    <input
+      class="emotion-2 emotion-3"
+      data-testid="textfield"
+      name="title"
+      placeholder="Name"
+      type="text"
+      value=""
+    />
+  </div>
+  .emotion-4 {
+  margin-bottom: 15px;
+}
+
+.emotion-0 {
+  color: ff6007;
+  font-size: 14px;
+  margin-bottom: 5px;
+  margin-left: 7.5px;
+}
+
+.emotion-2 {
+  font-family: 'Ubuntu',sans-serif;
+  outline: none;
+  padding: 10px 15px;
+  border: 1px solid #bdbdbd;
+  border-radius: 30px;
+  min-width: 200px;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 12px;
+}
+
+<div
+    class="emotion-4 emotion-5"
+  >
+    <div
+      class="emotion-0 emotion-1"
+      data-testid="label"
+    >
+      Tool Link
+    </div>
+    <input
+      class="emotion-2 emotion-3"
+      data-testid="textfield"
+      name="link"
+      placeholder="http://example.com"
+      type="text"
+      value=""
+    />
+  </div>
+  .emotion-4 {
+  margin-bottom: 15px;
+}
+
+.emotion-0 {
+  color: ff6007;
+  font-size: 14px;
+  margin-bottom: 5px;
+  margin-left: 7.5px;
+}
+
+.emotion-2 {
+  min-height: 120px;
+  font-family: 'Ubuntu',sans-serif;
+  outline: none;
+  padding: 10px 15px;
+  border: 1px solid #bdbdbd;
+  border-radius: 18px;
+  min-width: 200px;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 12px;
+}
+
+<div
+    class="emotion-4 emotion-5"
+  >
+    <div
+      class="emotion-0 emotion-1"
+      data-testid="label"
+    >
+      Tool Description
+    </div>
+    <textarea
+      class="emotion-2 emotion-3"
+      data-testid="textarea"
+      name="description"
+      placeholder="An awesome tool"
+      type="text"
+    />
+  </div>
+  .emotion-6 {
+  margin-bottom: 15px;
+}
+
+.emotion-0 {
+  color: ff6007;
+  font-size: 14px;
+  margin-bottom: 5px;
+  margin-left: 7.5px;
+}
+
+.emotion-4 {
+  font-family: 'Ubuntu',sans-serif;
+  border: 1px dashed #ffb18f;
+  border-radius: 4px;
+  min-width: 200px;
+  box-sizing: border-box;
+  font-size: 12px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 5px 10px;
+  overflow: hidden;
+}
+
+.emotion-2 {
+  font-family: Ubuntu;
+  outline: none;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  border: none;
+  font-size: 15px;
+}
+
+<div
+    class="emotion-6 emotion-7"
+  >
+    <div
+      class="emotion-0 emotion-1"
+      data-testid="label"
+    >
+      Tool Tags
+    </div>
+    <div
+      class="emotion-4 emotion-5"
+      type="text"
+    >
+      <input
+        class="emotion-2 emotion-3"
+        data-testid="textfield"
+        name="tags"
+        placeholder="useful, tool, etc"
+        value=""
+      />
+    </div>
+  </div>
+  .emotion-0 {
+  font-family: 'Ubuntu',sans-serif;
+  font-size: 12px;
+  color: #fff;
+  background-color: #ff6007;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 10px 50px;
+  border: none;
+  border-radius: 30px;
+  outline: none;
+  cursor: pointer;
+}
+
+.emotion-0:hover {
+  opacity: 0.9;
+}
+
+<button
+    class="emotion-0 emotion-1"
+    data-testid="save-tool"
+  >
+    Salvar
+  </button>
+</DocumentFragment>
+`;
