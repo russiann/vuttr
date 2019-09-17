@@ -16,12 +16,13 @@ export default compose(
   withHooks(props => {
     /** state */
     const tools = useSelector(state => state.tools.asMutable({deep: true}));
+    const listing = useSelector(state => state.listing.asMutable({deep: true}));
 
     const state = {
       data: tools.data,
       isFilterOnlyInTags: tools.filters.filterOnlyInTags,
-      newToolModalOpened: tools.newToolModalOpened,
-      confirmModal: tools.confirmModal
+      newToolModalOpened: listing.newToolModalOpened,
+      confirmModal: listing.confirmModal
     };
 
     /** actions */
@@ -31,11 +32,11 @@ export default compose(
       remove: models.tools.remove,
       setSearchText: models.tools.setSearchText,
       toggleFilterOnlyInTags: models.tools.toggleFilterOnlyInTags,
-      toggleNewToolModal: models.tools.toggleNewToolModal,
-      openConfirmModal: models.tools.openConfirmModal,
-      closeConfirmModal: models.tools.closeConfirmModal,
       onSearchText: models.tools.setSearchText,
-      onTagClick: models.tools.setSearchText
+      onTagClick: models.tools.setSearchText,
+      toggleNewToolModal: models.listing.toggleNewToolModal,
+      openConfirmModal: models.listing.openConfirmModal,
+      closeConfirmModal: models.listing.closeConfirmModal
     };
 
     /** side effects */

@@ -1,8 +1,8 @@
 import React from 'react';
 import {render, cleanup} from '@testing-library/react';
 import configureStore from 'redux-mock-store';
-import Tools from './tools.scene';
-import enhancer from './tools.enhancer';
+import Tools from './listing.scene';
+import enhancer from './listing.enhancer';
 import {Provider} from 'react-redux';
 import Immutable from 'seamless-immutable';
 
@@ -49,22 +49,25 @@ afterEach(cleanup);
 describe('enhancer', () => {
   it('should run find when mount', () => {
     const EmptyComponent = () => null;
-    const toolsStore = Immutable({
-      data: [],
-      loading: false,
-      error: null,
-      filters: {},
-      newToolModalOpened: false,
-      confirmModal: {}
-    });
+    const reduxStoreMock = {
+      listing: Immutable({
+        newToolModalOpened: false,
+        confirmModal: {}
+      }),
+      tools: Immutable({
+        data: [],
+        filters: {}
+      })
+    };
 
     const dispatch = {
+      listing: {},
       tools: {
         find: jest.fn()
       }
     };
 
-    const store = mockRematchStore({tools: toolsStore}, dispatch);
+    const store = mockRematchStore(reduxStoreMock, dispatch);
 
     const EnhancedComponent = enhancer(EmptyComponent);
     render(

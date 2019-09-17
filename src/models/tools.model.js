@@ -1,12 +1,25 @@
 import Immutable from 'seamless-immutable';
 import services from '../services';
-import when from '../common/helpers/when-logic';
+// import when from '../common/helpers/when-logic';
 
-const tools = {
+const model = {
   name: 'tools',
+
+  /**
+  |--------------------------------------------------
+  | State
+  |--------------------------------------------------
+  */
 
   state: Immutable({
     data: [],
+    saved: null,
+    removed: null,
+
+    filters: {
+      searchText: '',
+      filterOnlyInTags: false
+    },
 
     loadings: {
       fetching: false,
@@ -18,104 +31,77 @@ const tools = {
       fetching: null,
       saving: null,
       removing: null
-    },
-
-    filters: {
-      searchText: '',
-      filterOnlyInTags: false
-    },
-
-    newToolModalOpened: false,
-    confirmModal: {
-      opened: false,
-      tool: {
-        title: null
-      }
     }
   }),
 
-  reducers: {
-    setLoading: (state, {type, value}) =>
-      state.setIn(['loadings', type], value),
-    setError: (state, {type, value}) => state.setIn(['loadings', type], value),
+  /**
+  |--------------------------------------------------
+  | Reducers
+  |--------------------------------------------------
+  */
 
-    setData: (state, data) => state.merge({data}),
-    setSaved: state => state,
-    setRemoved: state => state,
+  reducers: {
+    loading: (state, {type, value}) => state.setIn(['loadings', type], value),
+    error: (state, {type, value}) => state.setIn(['errors', type], value),
 
     setSearchText: (state, searchText) =>
-      state.merge({filters: {searchText}}, {deep: true}),
-
+      state.setIn(['filters', 'searchText'], searchText),
     toggleFilterOnlyInTags: state =>
       state.setIn(
         ['filters', 'filterOnlyInTags'],
         !state.filters.filterOnlyInTags
       ),
 
-    toggleNewToolModal: state =>
-      state.set('newToolModalOpened', !state.newToolModalOpened),
-
-    openConfirmModal: (state, tool) =>
-      state.merge({confirmModal: {opened: true, tool}}),
-    closeConfirmModal: state =>
-      state.merge({confirmModal: {opened: false, tool: {title: null}}})
+    success: (state, data) => state.merge({data}),
+    saved: (state, saved) => state.merge({saved}),
+    removed: (state, removed) => state.merge({removed})
   },
+
+  /**
+  |--------------------------------------------------
+  | Effects
+  |--------------------------------------------------
+  */
 
   effects: dispatch => ({
     async find(payload, rootState) {
       const {filters} = rootState.tools;
+      dispatch.tools.loading({type: 'fetching', value: true});
       try {
         const data = await services.tools.find(filters);
-        dispatch.tools.setData(data);
+        dispatch.tools.success(data);
       } catch (error) {
-        dispatch.tools.setError({type: 'fetching', value: error});
+        dispatch.tools.error({type: 'fetching', value: error});
+      } finally {
+        dispatch.tools.loading({type: 'fetching', value: false});
       }
     },
 
     async create(data) {
+      dispatch.tools.loading({type: 'saving', value: true});
       try {
-        const response = await services.tools.create(data);
-        dispatch.tools.setSaved(response.data);
+        const savedTool = await services.tools.create(data);
+        dispatch.tools.saved(savedTool);
       } catch (error) {
-        dispatch.tools.setError({type: 'saving', value: error});
+        dispatch.tools.error({type: 'saving', value: error});
+      } finally {
+        dispatch.tools.loading({type: 'saving', value: false});
       }
     },
 
-    async remove(payload, rootState) {
-      const {tool} = rootState.tools.confirmModal;
+    async remove({id}, rootState) {
+      dispatch.tools.loading({type: 'removing', value: true});
+
       try {
-        const response = await services.tools.remove(tool.id);
-        dispatch.tools.setRemoved(response.data);
+        const removedTool = await services.tools.remove(id);
+        dispatch.tools.removed(removedTool);
       } catch (error) {
-        dispatch.tools.setError({type: 'removing', value: error});
+        dispatch.tools.error({type: 'removing', value: error});
+      } finally {
+        dispatch.tools.loading({type: 'removing', value: false});
       }
     }
-  }),
-
-  logics: [
-    when(['tools/toggleFilterOnlyInTags', 'tools/setSearchText'], ({tools}) =>
-      tools.find()
-    ),
-    when('tools/find', ({tools}) =>
-      tools.setLoading({type: 'fetching', value: true})
-    ),
-    when(['tools/setData', 'tools/setError'], ({tools}) => {
-      tools.setLoading({type: 'fetching', value: false});
-    }),
-    when('tools/create', ({tools}) =>
-      tools.setLoading({type: 'saving', value: true})
-    ),
-    when(['tools/setSaved'], ({tools}) => {
-      tools.setLoading({type: 'saving', value: false});
-      tools.toggleNewToolModal();
-      tools.find();
-    }),
-    when(['tools/setRemoved'], ({tools}) => {
-      tools.setLoading({type: 'removing', value: false});
-      tools.closeConfirmModal();
-      tools.find();
-    })
-  ]
+  })
 };
 
-export default tools;
+export default model;
