@@ -128,7 +128,12 @@ const initialState = {
     tool: {
       title: ''
     }
-  }
+  },
+  remove: () => {},
+  openConfirmModal: () => {},
+  closeConfirmModal: () => {},
+  onTagClick: () => {},
+  onSearchText: () => {}
 };
 
 /**

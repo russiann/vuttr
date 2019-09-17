@@ -58,6 +58,8 @@ const tagStyle = css`
 |--------------------------------------------------
 */
 
+const delimiters = [188 /* comma */, 13 /* enter */];
+
 const TagField = ({value, onChange, placeholder, ...props}) => {
   const [inputValue, setInputValue] = useState('');
 
@@ -65,7 +67,7 @@ const TagField = ({value, onChange, placeholder, ...props}) => {
     if (!inputValue && value.length > 0 && ev.keyCode === 8) {
       onChange(value.slice(0, -1));
     }
-    if (ev.keyCode === 188 || ev.keyCode === 13) {
+    if (delimiters.includes(ev.keyCode)) {
       ev.preventDefault();
       if (inputValue) {
         onChange([...value, inputValue]);

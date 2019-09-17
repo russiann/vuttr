@@ -75,7 +75,7 @@ const Checkbox = ({label, className, checked, ...props}) => (
 );
 
 Checkbox.propTypes = {
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
   className: PropTypes.string,
   checked: PropTypes.bool
 };
