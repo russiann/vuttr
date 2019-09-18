@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import ToolsScene from './listing.scene';
 import enhancer from './listing.enhancer';
 

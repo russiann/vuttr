@@ -24,7 +24,8 @@
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
-    "test": "react-app-rewired test --json --outputFile=jest-test-results.json",
+    "test": "react-app-rewired test --json --coverage --outputFile=jest-test-results.json",
+    "coverage": "react-app-rewired test --coverage --watchAll=false --collectCoverageFrom=src/**/*.js --collectCoverageFrom=!src/**/*.stories.js ",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
