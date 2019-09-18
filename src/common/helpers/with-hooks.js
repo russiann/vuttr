@@ -1,14 +1,5 @@
 import React from 'react';
-
-const pick = (obj, fields) => {
-  let picked = {};
-  if (obj instanceof Object && fields instanceof Array) {
-    fields.forEach(field => {
-      picked[field] = obj[field];
-    });
-  }
-  return picked;
-};
+import pick from './pick';
 
 const withHooks = (mapHooksToProps, {frozenProps = []} = {}) => {
   return WrappedComponent => {
